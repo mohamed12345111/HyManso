@@ -5,6 +5,9 @@
          this.ensureNoWorldGeneration();
          ConduitBlockEntity conduit = (ConduitBlockEntity) this.getBlockEntityFromWorld();
 -        return (conduit != null) ? ConduitBlockEntity.getRange(conduit.effectBlocks) : 0;
+         if (conduit != null && conduit.getRange(conduit.effectBlocks) == 5){
+             return (conduit != null) ? ConduitBlockEntity.getRange(conduit.effectBlocks, this.world.getHandle()) : 7; 
+         }
 +        return (conduit != null) ? ConduitBlockEntity.getRange(conduit.effectBlocks, this.world.getHandle()) : 0; // Purpur - Conduit behavior configuration
      }
  
